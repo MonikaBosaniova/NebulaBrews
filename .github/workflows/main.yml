@@ -19,6 +19,7 @@ jobs:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
+            Library-WebGL-
             Library-
 
       # Build
