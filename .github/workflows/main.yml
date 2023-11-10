@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Build my project ✨
+    name: Build for WebGl ✨
     runs-on: ubuntu-latest
     steps:
       # Checkout
@@ -45,7 +45,7 @@ jobs:
           single-commit: true
 
   buildForAndroid:
-    name: Build for Android
+    name: Build for Android 🧁
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
