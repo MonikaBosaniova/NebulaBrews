@@ -1,0 +1,54 @@
+{
+    "name": "InputControlls",
+    "maps": [
+        {
+            "name": "Input",
+            "id": "729f553f-6f77-45d8-8d06-b876dd50729c",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "b9726963-d232-4b4b-a251-437af20e1445",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "45fa6770-a962-4cb7-a9fa-1418223b37cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "32624c01-6e25-4905-9b23-a5f87b310130",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70d366fd-1434-46b4-969e-ce71f2c32a1a",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
