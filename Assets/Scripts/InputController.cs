@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class InputController : MonoBehaviour
 {
     public TMP_Text text;
+    public Camera Camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,18 @@ public class InputController : MonoBehaviour
     {
         if (!context.started)
             return;
+        int tmp = int.Parse(text.text) + 1;
+        text.text = tmp.ToString();
         Debug.Log("Click!");
+
+        RaycastHit hit;
+        Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit) && hit.transform.gameObject.layer == LayerMask.NameToLayer("Ingredients"))
+        {
+            hit.transform.DOLocalMoveY(0.3f, 0.5f, false);
+            // Do something with the object that was hit by the raycast.
+        }
     }
 
     public void OnTouch(InputAction.CallbackContext context)
@@ -35,3 +48,5 @@ public class InputController : MonoBehaviour
         Debug.Log("Touch!");
     }
 }
+
+

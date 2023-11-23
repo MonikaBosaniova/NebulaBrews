@@ -13,15 +13,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Touch",
-                    "type": "Button",
-                    "id": "45fa6770-a962-4cb7-a9fa-1418223b37cf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -38,12 +29,12 @@
                 },
                 {
                     "name": "",
-                    "id": "70d366fd-1434-46b4-969e-ce71f2c32a1a",
+                    "id": "8edd9ea0-91da-4a79-8a61-460d0d625df1",
                     "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Touch",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
