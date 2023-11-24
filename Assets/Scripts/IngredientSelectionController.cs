@@ -52,10 +52,14 @@ public class IngredientSelectionController : MonoBehaviour
         if (newValue)
         {
             transform.DOLocalMoveY(startYPosition + .1f, 0.5f, false).WaitForCompletion();
-            transform.parent.GetComponent<IngredientSelectionManager>().SelectedObject = this;
+            transform.parent.parent.GetComponent<IngredientSelectionManager>().SelectedObject = this;
+            transform.parent.GetChild(1).gameObject.SetActive(true);
         }
         else
+        {
             transform.DOLocalMoveY(startYPosition, 0.5f, false).WaitForCompletion();
+            transform.parent.GetChild(1).gameObject.SetActive(false);
+        }
 
     }
 
