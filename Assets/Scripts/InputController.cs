@@ -34,7 +34,7 @@ public class InputController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit) && hit.transform.gameObject.layer == LayerMask.NameToLayer("Ingredients"))
         {
-            hit.transform.DOLocalMoveY(0.3f, 0.5f, false);
+            hit.transform.parent.GetComponent<IngredientSelectionManager>().SelectedObject = hit.transform.GetComponent<IngredientSelectionController>();
             // Do something with the object that was hit by the raycast.
         }
     }
