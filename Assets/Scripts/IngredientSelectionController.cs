@@ -87,16 +87,17 @@ public class IngredientSelectionController : MonoBehaviour
         transform.DOLocalMove(new Vector3(-0.3f, 0.35f, 0.5f), 1, false).OnComplete(() =>
         {
             PotionParticles.Play();
-            transform.DOLocalRotate(new Vector3(0, 0f, -100f), 2f).OnComplete(() =>
+            if (IsMenuIngredient)
             {
-                if (IsMenuIngredient)
+                transform.DOLocalRotate(new Vector3(0, 0f, -100f), 2f).OnComplete(() =>
                 {
+
                     this.IsNearCauldron = false;
                     MenuIngredientsPotionTasks();
 
-                }
+                });
+            }
 
-            });
 
         });
         transform.DOLocalRotate(new Vector3(0, 0, -95f), 0.5f);
