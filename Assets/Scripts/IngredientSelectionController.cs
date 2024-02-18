@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class IngredientSelectionController : MonoBehaviour
 {
@@ -17,7 +18,12 @@ public class IngredientSelectionController : MonoBehaviour
     public bool isSelected = false;
     public bool isNearCauldron = false;
 
+    public bool IsMenuIngredient = false;
+    public int MenuButtonIndex = 0;
+
     public ParticleSystem PotionParticles;
+    public Camera Camera;
+
 
     //private Sequence sequence;
 
@@ -65,6 +71,8 @@ public class IngredientSelectionController : MonoBehaviour
         this.OnBooleanChangeCauldron += HandleBooleanChangeCauldron;
         startPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z);
         //sequence = DOTween.Sequence();
+        var main = PotionParticles.main;
+        main.stopAction = ParticleSystemStopAction.Callback;
     }
 
     // Update is called once per frame
@@ -76,7 +84,21 @@ public class IngredientSelectionController : MonoBehaviour
     private void MoveIngredientToCauldron()
     {
         transform.DOLocalMoveY(0.35f, 0.2f, false);
-        transform.DOLocalMove(new Vector3(-0.3f, 0.35f, 0.5f), 1, false).OnComplete(() => { PotionParticles.Play(); });
+        transform.DOLocalMove(new Vector3(-0.3f, 0.35f, 0.5f), 1, false).OnComplete(() =>
+        {
+            PotionParticles.Play();
+            transform.DOLocalRotate(new Vector3(0, 0f, -100f), 2f).OnComplete(() =>
+            {
+                if (IsMenuIngredient)
+                {
+                    this.IsNearCauldron = false;
+                    MenuIngredientsPotionTasks();
+
+                }
+
+            });
+
+        });
         transform.DOLocalRotate(new Vector3(0, 0, -95f), 0.5f);
 
     }
@@ -140,6 +162,27 @@ public class IngredientSelectionController : MonoBehaviour
         this.OnBooleanChangeCauldron -= HandleBooleanChangeCauldron;
     }
 
+    void MenuIngredientsPotionTasks()
+    {
+        Camera.transform.DOLocalRotate(new Vector3(65.972f, 0.265f, -0.011f), 1f);
+        Camera.transform.DOLocalMove(new Vector3(-0.043f, 1.598f, 1.201f), 1f).OnComplete(() =>
+        {
+            switch (MenuButtonIndex)
+            {
+                case 1:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    Application.Quit();
+                    break;
+                default:
+                    break;
+            }
+
+        });
+    }
 
 
 }

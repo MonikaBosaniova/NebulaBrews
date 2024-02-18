@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class InputController : MonoBehaviour
 {
-    public TMP_Text text;
+    //public TMP_Text text;
     public Camera Camera;
 
     IngredientSelectionController lastSelectedIngredient;
@@ -28,8 +28,8 @@ public class InputController : MonoBehaviour
     {
         if (!context.started)
             return;
-        int tmp = int.Parse(text.text) + 1;
-        text.text = tmp.ToString();
+        //int tmp = int.Parse(text.text) + 1;
+        //text.text = tmp.ToString();
         Debug.Log("Click!");
 
         RaycastHit hit;
@@ -90,8 +90,8 @@ public class InputController : MonoBehaviour
     {
         if (!context.started)
             return;
-        int tmp = int.Parse(text.text) + 1;
-        text.text = tmp.ToString();
+        //int tmp = int.Parse(text.text) + 1;
+        //text.text = tmp.ToString();
         Debug.Log("Touch!");
     }
 
